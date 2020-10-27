@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>Test Kakao API</title>
+</head>
+
+<body>
+<a id="kakao-link-btn" href="javascript:sendLink()">
+    <img
+      src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+    />
+  </a>
+
+  <script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script type="text/javascript">
+
+    const URL_tmp = " https://fb1fa5e44c7b.ngrok.io"
+    const Blog_URL_tmp = "https://silofox.github.io/"
+
+    function sendLink() {
+        Kakao.init("940bb065c0262b61e4f0c7d9fab87464");
+        Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+            title: '딸기 치즈 케익',
+            description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+            imageUrl:
+                'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+            link: {
+                mobileWebUrl: Blog_URL_tmp,
+                webUrl: Blog_URL_tmp,
+            },
+            },
+            social: {
+            likeCount: 286,
+            commentCount: 45,
+            sharedCount: 845,
+            },
+            buttons: [
+            {
+                title: '웹으로 보기',
+                link: {
+                mobileWebUrl: URL_tmp,
+                webUrl: URL_tmp,
+                },
+            },
+            {
+                title: '앱으로 보기',
+                link: {
+                mobileWebUrl: URL_tmp,
+                webUrl: URL_tmp,
+                },
+            },
+            ],
+        })
+    }
+  </script>
+  </body>
+
+  </html>
